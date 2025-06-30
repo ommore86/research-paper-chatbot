@@ -1,0 +1,7 @@
+flask
+PyPDF2
+langchain
+langchain-community
+langchain-huggingface
+faiss-cpu
+huggingface_hub

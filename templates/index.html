@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<section>
+  <div class="bg-white">
+    <div class="relative isolate overflow-hidden bg-gradient-to-b from-gray-200/50">
+      <div class="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
+        <div class="px-6 lg:px-0 lg:pt-4">
+          <div class="mx-auto max-w-2xl">
+            <div class="max-w-lg">
+              <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Upload PDF & Ask Anything</h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600">Our chatbot reads your research paper and answers questions using AI.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20 lg:mt-0 flex justify-center items-center">
+          <img src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1712987021/ghzgwi4mxevqrt0lxefw.png" class="drop-shadow-2xl" height="350" width="350" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-12 bg-gradient-to-t from-gray-900/5">
+  <div class="max-w-4xl mx-auto px-4">
+    <form action="/" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow space-y-6">
+      <div>
+        <label class="block text-sm font-medium text-gray-900">Upload your PDF</label>
+        <input type="file" name="file" accept=".pdf" required
+               class="mt-2 block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-blue-600 sm:text-sm">
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-900">Ask a question</label>
+        <textarea name="question" rows="4"
+                  class="mt-2 block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-blue-600 sm:text-sm"
+                  placeholder="Who is the author? What is the conclusion?"></textarea>
+      </div>
+
+      <div>
+        <button type="submit"
+                class="rounded-md bg-gradient-to-tr from-rose-400 via-fuchsia-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-700">
+          Get Answer
+        </button>
+      </div>
+    </form>
+
+    {% if results %}
+    <div class="mt-6 bg-white p-4 rounded-lg shadow">
+      <h2 class="text-lg font-semibold text-gray-800 mb-2">Answer:</h2>
+      <p class="text-gray-700 whitespace-pre-wrap">{{ results }}</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+</body>
+</html>
