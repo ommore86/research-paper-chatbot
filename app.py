@@ -2,6 +2,7 @@ import os, uuid
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import PyPDF2
+from dotenv import load_dotenv
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -12,10 +13,13 @@ from langchain_huggingface import (
 )
 from langchain.chains import RetrievalQA
 
+load_dotenv()
+
 # ── CONFIG ───────────────────────────────────────────────────────────────────────
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
+
+HF_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
