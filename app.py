@@ -13,6 +13,25 @@ from langchain_huggingface import (
 )
 from langchain.chains import RetrievalQA
 
+# TOP OF app.py — ADD THIS
+from functools import lru_cache
+import gc
+
+@lru_cache(maxsize=1)
+def get_embedder():
+    return HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
+@lru_cache(maxsize=1)
+def get_llm():
+    return ChatHuggingFace(
+        llm=HuggingFaceEndpoint(
+            repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1",
+            temperature=0.3,
+            max_new_tokens=512,
+        )
+    )
+
+
 load_dotenv()
 
 # ── CONFIG ───────────────────────────────────────────────────────────────────────
@@ -35,22 +54,11 @@ def build_qa_for_pdf(path: str) -> RetrievalQA:
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = splitter.split_text(text)
 
-    # Embeddings
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
-    )
+    embeddings = get_embedder()  # ✅ use shared singleton
     store = FAISS.from_texts(chunks, embeddings)
 
-    # LLM
-    llm = ChatHuggingFace(
-        llm=HuggingFaceEndpoint(
-            repo_id="mistralai/Mixtral-8x7B-Instruct-v0.1",
-            temperature=0.3,
-            max_new_tokens=512,  # More tokens for detailed answers
-        )
-    )
-
-    retriever = store.as_retriever(search_type="mmr", search_kwargs={"k": 5})  # Optional boost
+    llm = get_llm()  # ✅ use shared singleton
+    retriever = store.as_retriever(search_type="mmr", search_kwargs={"k": 5})
     return RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
 # ── ROUTES ───────────────────────────────────────────────────────────────────────
@@ -87,6 +95,7 @@ def index():
             response = qa_chain.invoke({"query": question})
             answer = response.get("result", response) if isinstance(response, dict) else response
 
+            gc.collect()  
         except Exception as e:
             answer = f"❌ Error during processing: {e}"
 
