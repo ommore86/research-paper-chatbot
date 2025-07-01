@@ -62,6 +62,10 @@ def build_qa_for_pdf(path: str) -> RetrievalQA:
     return RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
 # ── ROUTES ───────────────────────────────────────────────────────────────────────
+@app.route("/healthz")
+def healthz():
+    return "ok", 200
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     answer = ""
