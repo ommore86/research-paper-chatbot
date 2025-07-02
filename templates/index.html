@@ -1,64 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PDF Chatbot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    referrerpolicy="no-referrer">
 </head>
-<body>
-<section>
-  <div class="bg-white">
-    <div class="relative isolate overflow-hidden bg-gradient-to-b from-gray-200/50">
-      <div class="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
-        <div class="px-6 lg:px-0 lg:pt-4">
-          <div class="mx-auto max-w-2xl">
-            <div class="max-w-lg">
-              <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Upload PDF & Ask Anything</h1>
-              <p class="mt-6 text-lg leading-8 text-gray-600">Our chatbot reads your research paper and answers questions using AI.</p>
+
+<body class="m-0 bg-white">
+    <div class="bg-gradient-to-t from-indigo-50 via-white to-indigo-100">
+  <!-- ========== Header ========== -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <!-- App name / logo -->
+      <a href="/" class="text-xl sm:text-2xl font-bold tracking-tight text-indigo-600">
+        PDF&nbsp;Chatbot
+      </a>
+
+      <!-- Bookmark / nav links -->
+      <nav class="hidden sm:flex items-center space-x-6 text-sm font-medium">
+        <a href="#upload" class="text-gray-600 hover:text-indigo-600 transition">Upload</a>
+        <a href="#chat" class="text-gray-600 hover:text-indigo-600 transition">Chat</a>
+        <a href="#features" class="text-gray-600 hover:text-indigo-600 transition">Features</a>
+        <a href="#connect" class="text-gray-600 hover:text-indigo-600 transition">Connect</a>
+      </nav>
+
+      <!-- Mobile hamburger (optional) -->
+      <button class="sm:hidden inline-flex items-center justify-center h-8 w-8 text-gray-600 hover:text-indigo-600">
+        <!-- heroicons outline menu -->
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+  <!-- /Header -->
+
+  <section>
+    <div class="bg-white">
+      <div class="relative isolate overflow-hidden bg-gradient-to-b from-gray-200/50">
+        <div class="mx-auto max-w-7xl pb-16 pt-4 sm:pb-24 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-10">
+          <div class="px-6 lg:px-0 lg:pt-4">
+            <div class="mx-auto max-w-2xl">
+              <div class="max-w-lg">
+                <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Upload PDFs, <br> Research
+                  Papers & <br> Ask me Anything!!!</h1>
+                <p class="mt-6 text-lg leading-8 text-gray-600">My chatbot reads your research paper and answers
+                  questions using AI model.</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="mt-20 lg:mt-0 flex justify-center items-center">
-          <img src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1712987021/ghzgwi4mxevqrt0lxefw.png" class="drop-shadow-2xl" height="350" width="350" alt="">
+          <div class="mt-20 lg:mt-0 flex justify-center items-center">
+            <img
+              src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751354513/chatbot_image_3-removebg-preview_epdxw0.png"
+              class="drop-shadow-2xl" height="350" width="550" alt="chatbot image">
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="py-12 bg-gradient-to-t from-gray-900/5">
-  <div class="max-w-4xl mx-auto px-4">
-    <form action="/" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow space-y-6">
-      <div>
-        <label class="block text-sm font-medium text-gray-900">Upload your PDF</label>
-        <input type="file" name="file" accept=".pdf" required
-               class="mt-2 block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-blue-600 sm:text-sm">
+  <section id="upload" class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Section Header -->
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800">Chat With Your PDF</h2>
+        <p class="mt-2 text-gray-600 text-sm">Upload a research paper and ask any question. Powered by AI.</p>
       </div>
 
-      <div>
-        <label class="block text-sm font-medium text-gray-900">Ask a question</label>
-        <textarea name="question" rows="4"
-                  class="mt-2 block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-blue-600 sm:text-sm"
-                  placeholder="Who is the author? What is the conclusion?"></textarea>
-      </div>
+      <!-- Form Card -->
+      <form action="/" method="POST" enctype="multipart/form-data"
+        class="bg-white bg-opacity-80 backdrop-blur-md p-8 rounded-2xl shadow-xl space-y-6 border border-gray-200">
 
-      <div>
-        <button type="submit"
-                class="rounded-md bg-gradient-to-tr from-rose-400 via-fuchsia-500 to-indigo-500 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pink-700">
-          Get Answer
-        </button>
-      </div>
-    </form>
+        <!-- Upload File -->
+        <div>
+          <label class="block text-sm font-medium text-gray-900 mb-1">Upload your PDF</label>
+          <input type="file" name="file" accept=".pdf" required
+            class="block w-full rounded-md border border-gray-300 bg-white py-2 px-3 text-gray-800 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 transition sm:text-sm">
+        </div>
 
-    {% if results %}
-    <div class="mt-6 bg-white p-4 rounded-lg shadow">
-      <h2 class="text-lg font-semibold text-gray-800 mb-2">Answer:</h2>
-      <p class="text-gray-700 whitespace-pre-wrap">{{ results }}</p>
+        <!-- Question Field -->
+        <div>
+          <label class="block text-sm font-medium text-gray-900 mb-1">Ask a Question</label>
+          <textarea name="question" rows="4" placeholder="E.g., What is the methodology used?"
+            class="block w-full rounded-md border border-gray-300 bg-white py-2 px-3 text-gray-800 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 transition sm:text-sm"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit"
+            class="inline-block w-full sm:w-auto rounded-full bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 px-8 py-3 text-sm font-semibold text-white shadow-lg hover:brightness-110 transition duration-200">
+            Get Answer
+          </button>
+        </div>
+      </form>
+
+      <!-- Result (if any) -->
+      {% if results %}
+      <div class="mt-6 bg-white p-6 rounded-lg shadow border border-gray-200">
+        <h2 class="text-lg font-semibold text-gray-800 mb-2">Answer:</h2>
+        <p class="text-gray-700 whitespace-pre-wrap">{{ results }}</p>
+      </div>
+      {% endif %}
+
     </div>
-    {% endif %}
-  </div>
-</section>
+  </section>
+
+  <!-- ========== Features Section ========== -->
+  <section id="features" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Section Heading -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">Features</h2>
+        <p class="mt-2 text-gray-600 text-sm">What makes our PDF Chatbot stand out</p>
+      </div>
+
+      <!-- Feature Boxes -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Feature 1 -->
+        <div
+          class="bg-white bg-opacity-80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
+          <!-- Replace with your image -->
+          <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751357240/feature_img_1_nhlopv.jpg"
+            alt="Feature 1" class="mx-auto h-28 mb-4 object-contain" />
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Instant PDF Understanding</h3>
+          <p class="text-sm text-gray-600">Ask any question and get accurate responses based on the uploaded PDF content
+            in seconds.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div
+          class="bg-white bg-opacity-80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
+          <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751357240/feature_img_2_b8feaa.jpg"
+            alt="Feature 2" class="mx-auto h-28 mb-4 object-contain" />
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Multiple File Support</h3>
+          <p class="text-sm text-gray-600">Upload research papers, eBooks, or reports — the chatbot can handle various
+            types of academic PDFs.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div
+          class="bg-white bg-opacity-80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
+          <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751357580/feature_img_3_qeecda.jpg"
+            alt="Feature 3" class="mx-auto h-28 mb-4 object-contain" />
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">AI-Powered Accuracy</h3>
+          <p class="text-sm text-gray-600">Built with powerful AI models to understand complex contexts, summaries, and
+            in-depth queries.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========== Connect / Footer Section ========== -->
+<footer id="connect" class="w-full bg-gray-900 text-gray-300">
+  <div class="max-w-7xl mx-auto px-6 py-8 text-center">
+
+    <!-- Section Heading -->
+    <h2 class="text-3xl font-bold text-white mb-2">Connect With Me</h2>
+    <p class="text-gray-400 mb-8">Feel free to reach out on any platform!</p>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center space-x-8 text-2xl">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/om-more-b802b2281/"
+         target="_blank" rel="noopener noreferrer"
+         class="hover:text-blue-400 transition">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/ommore86/"
+         target="_blank" rel="noopener noreferrer"
+         class="hover:text-white transition">
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:omgmore2005@gmail.com"
+         class="hover:text-red-400 transition">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-10 border-t border-gray-700 pt-6 text-sm text-gray-500">
+      &copy; 2025 Om More.
+    </div>
+
+</footer>
+
+
+
 </body>
+
 </html>

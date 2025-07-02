@@ -1,20 +1,14 @@
-# Base image
-FROM python:3.10
+FROM python:3.11-slim
 
-# Create app directory
+RUN useradd -m -u 1000 user
+USER user
+ENV PATH="/home/user/.local/bin:$PATH"
+
 WORKDIR /app
 
-# Copy files
-COPY . /app
-
-# Install dependencies
+COPY --chown=user requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set environment variables
-ENV PORT=7860
+COPY --chown=user . .
 
-# Expose port
-EXPOSE 7860
-
-# Run the app
 CMD ["gunicorn", "--bind", "0.0.0.0:7860", "app:app"]
