@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PDF Chatbot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     referrerpolicy="no-referrer">
 </head>
@@ -13,15 +14,15 @@
 <body class="m-0 bg-white">
   <div class="bg-gradient-to-b from-indigo-200 via-white to-indigo-100">
   <div class="bg-gradient-to-b from-indigo-50 via-white to-indigo-100">
-    <!-- ========== Header ========== -->
+
+    <!-- Header -->
     <header class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm">
       <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <!-- App name / logo -->
+
         <a href="/" class="text-xl sm:text-2xl font-bold tracking-tight text-indigo-600">
           AskBot.AI
         </a>
 
-        <!-- Bookmark / nav links -->
         <nav class="hidden sm:flex items-center space-x-6 text-sm font-medium">
           <a href="#chat" class="text-gray-600 hover:text-indigo-600 transition">Chat</a>
           <a href="#features" class="text-gray-600 hover:text-indigo-600 transition">Features</a>
@@ -29,9 +30,7 @@
           <a href="#connect" class="text-gray-600 hover:text-indigo-600 transition">Connect</a>
         </nav>
 
-        <!-- Mobile hamburger (optional) -->
         <button class="sm:hidden inline-flex items-center justify-center h-8 w-8 text-gray-600 hover:text-indigo-600">
-          <!-- heroicons outline menu -->
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -41,7 +40,7 @@
     <!-- /Header -->
 
 
-    <main class="">
+    <!-- <main class=""> -->
       <section>
         <div class="bg-white">
           <!-- <div class="relative isolate overflow-hidden bg-gradient-to-b from-gray-200/50"> -->
@@ -50,11 +49,9 @@
               <div class="mx-auto max-w-2xl">
                 <div class="max-w-lg">
                   <h1 class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Upload PDFs, <br>
-                    Research
-                    Papers & <br> Ask me Anything!!!</h1>
-                  <p class="mt-6 text-lg leading-8 text-gray-600">My chatbot reads your research paper or any PDFs and
-                    answers
-                    questions using AI model.</p>
+                    Research Papers & <br> Ask me Anything!!!</h1>
+                  <p class="mt-6 text-lg leading-8 text-gray-600">My chatbot reads your research paper
+                    or any PDFs and answers questions using AI model.</p>
                 </div>
               </div>
             </div>
@@ -69,25 +66,21 @@
   </div>
   </section>
 
+  <!-- Chat Section -->
   <section id="chat" class="py-20">
     <div class="max-w-6xl mx-auto px-6">
 
-      <!-- Section Header -->
       <div class="text-center mb-10">
         <h2 class="text-3xl font-bold text-gray-800">Chat With Your PDF</h2>
         <p class="mt-2 text-gray-600 text-sm">Upload a research paper and ask any question. Powered by AI.</p>
       </div>
 
-      <!-- Form Card -->
-      <!-- Upload & Chat UI -->
       <div id="uploadChatCard" class="bg-white shadow-xl border border-gray-200 rounded-xl p-6 space-y-6">
-
-        <!-- Upload Box -->
         <div id="uploader" class="space-y-4 text-center">
           <div class="flex items-center justify-center gap-4 flex-col sm:flex-row">
             <label for="pdfFile"
               class="cursor-pointer bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded shadow text-sm transition">
-              📄 Choose PDF
+              Choose PDF
             </label>
             <span id="fileNameDisplayText" class="text-sm text-gray-600 italic">No file chosen</span>
             <input id="pdfFile" type="file" accept=".pdf" class="hidden">
@@ -100,8 +93,6 @@
 
         <!-- Chat Interface -->
         <div id="chatInterface" class="hidden space-y-4">
-          <!-- Display File Name -->
-          <!-- File Info & Reupload Button -->
           <div class="flex justify-between items-center max-w-3xl mx-auto">
             <div id="fileNameDisplay" class="text-sm text-gray-600 font-medium italic"></div>
             <button id="reuploadBtn" class="text-sm text-indigo-600 hover:underline">
@@ -109,13 +100,11 @@
             </button>
           </div>
 
-
           <!-- Chat Box -->
           <div id="chatBox"
             class="space-y-3 max-w-3xl max-h-96 overflow-y-auto px-4 py-4 border rounded-lg bg-white shadow-inner mx-auto">
           </div>
 
-          <!-- Chat Input -->
           <form id="chatForm" class="flex max-w-3xl mx-auto">
             <input id="msgInput" autocomplete="off" placeholder="Ask a question..."
               class="flex-1 rounded-l-lg border-gray-300 px-4 py-3 shadow" />
@@ -124,10 +113,9 @@
             </button>
           </form>
         </div>
-
       </div>
 
-      <!-- Result (if any) -->
+      <!-- Result -->
       {% if results %}
       <div class="mt-6 bg-white p-6 rounded-lg shadow border border-gray-200">
         <h2 class="text-lg font-semibold text-gray-800 mb-2">Answer:</h2>
@@ -138,43 +126,38 @@
     </div>
   </section>
 
-  <!-- ========== Features Section ========== -->
+  <!-- Features Section -->
   <section id="features" class="py-20">
     <div class="max-w-7xl mx-auto px-6">
 
-      <!-- Section Heading -->
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-800">Features</h2>
         <p class="mt-2 text-gray-600 text-sm">What makes our PDF Chatbot stand out</p>
       </div>
 
-      <!-- Feature Boxes -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <!-- Feature 1 -->
+        <!-- Instant PDF Reading -->
         <div
           class="bg-white bg-opacity-80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
-          <!-- Replace with your image -->
           <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751357240/feature_img_1_nhlopv.jpg"
             alt="Feature 1" class="mx-auto h-28 mb-4 object-contain" />
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Instant PDF Understanding</h3>
-          <p class="text-sm text-gray-600">Ask any question and get accurate responses based on the uploaded PDF
-            content
-            in seconds.</p>
+          <p class="text-sm text-gray-600">Ask any question and get accurate responses
+            based on the uploaded PDF content in seconds.</p>
         </div>
 
-        <!-- Feature 2 -->
+        <!-- Multiple File-Type Support -->
         <div
           class="bg-white bg-opacity-80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
           <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751357240/feature_img_2_b8feaa.jpg"
             alt="Feature 2" class="mx-auto h-28 mb-4 object-contain" />
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Multiple File-Type Support</h3>
-          <p class="text-sm text-gray-600">Upload research papers, eBooks, or reports — the chatbot can handle
-            various
-            types of academic PDFs.</p>
+          <p class="text-sm text-gray-600">Upload research papers, eBooks, or reports — 
+            the chatbot can handle various types of academic PDFs.</p>
         </div>
 
-        <!-- Feature 3 -->
+        <!-- AI-Powered Accuracy -->
         <div
           class="bg-white bg-opacity-80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
           <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751357580/feature_img_3_qeecda.jpg"
@@ -193,24 +176,21 @@
   <!-- ========== Tech Stack & AI Models ========== -->
   <section id="tech" class="py-20">
     <div class="max-w-7xl mx-auto px-6">
-      <!-- Heading -->
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-800">Tech Stack &amp; AI Models</h2>
         <p class="mt-2 text-gray-600 text-sm">
-          Everything powering the intelligence behind PDF Chatbot
+          The key Technologies and AI models that power this chatbot
         </p>
       </div>
 
-      <!-- Cards -->
+      <!-- Python and Flask -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <!-- Python + Flask -->
         <div
           class="bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
           <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python Flask"
             class="mx-auto h-20 mb-4 object-contain" />
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Python & Flask</h3>
-          <p class="text-sm text-gray-600">Handles backend, file uploads &amp; AI Responses.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Python & Flask</h3>
+          <p class="text-sm text-gray-600">Handles backend, file uploads & AI Responses.</p>
         </div>
 
         <!-- LangChain -->
@@ -219,7 +199,7 @@
           <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751439498/download_wabh02.png" alt="LangChain"
             class="mx-auto h-20 mb-4 object-contain" />
           <h3 class="text-xl font-semibold text-gray-800 mb-2">LangChain</h3>
-          <p class="text-sm text-gray-600">LangChain manages PDF processing &amp; LLM calls.</p>
+          <p class="text-sm text-gray-600">LangChain manages PDF processing & LLM calls.</p>
         </div>
 
         <!-- Embeddings -->
@@ -236,17 +216,17 @@
           class="bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
           <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751439632/download_so6va6.png" alt="FAISS"
             class="mx-auto h-20 mb-4 object-contain" />
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">FAISS Vector Store</h3>
-          <p class="text-sm text-gray-600">Enables Fast Similarity Search in PDFs.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">FAISS Vector Store</h3>
+          <p class="text-sm text-gray-600">Enables Fast Similarity Search of vectors in PDFs.</p>
         </div>
 
 
         <!-- LLM -->
         <div
           class="bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl p-6 shadow-lg text-center transition hover:shadow-xl">
-          <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751439689/download_dnwyjq.png" alt="Mixtral LLM"
+          <img src="https://res.cloudinary.com/dekujzz4s/image/upload/v1751520819/download_cbh1yx.jpg" alt="Mixtral LLM"
             class="mx-auto h-20 mb-4 object-contain" />
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">LLM: Mixtral-8×7B</h3>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">LLM: llama-3.1-8b-instant</h3>
           <p class="text-sm text-gray-600">Generates correct answers from extracted PDF chunks.</p>
         </div>
 
@@ -258,22 +238,19 @@
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Tailwind CSS</h3>
           <p class="text-sm text-gray-600">Stylish and fully responsive frontend.</p>
         </div>
-
       </div>
     </div>
   </section>
-  </main>
+  <!-- </main> -->
   </div>
 
   <!-- ========== Connect / Footer Section ========== -->
   <footer id="connect" class="w-full bg-gray-900 text-gray-300">
     <div class="max-w-7xl mx-auto px-6 py-8 text-center">
 
-      <!-- Section Heading -->
       <h2 class="text-3xl font-bold text-white mb-2">Connect With Me</h2>
       <p class="text-gray-400 mb-8">Feel free to reach out on any platform!</p>
 
-      <!-- Social Icons -->
       <div class="flex justify-center space-x-8 text-2xl">
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/om-more-b802b2281/" target="_blank" rel="noopener noreferrer"
@@ -293,17 +270,14 @@
         </a>
       </div>
 
-      <!-- Divider -->
       <div class="mt-10 border-t border-gray-700 pt-6 text-sm text-gray-500">
-        &copy; 2025 Om More.
+        &copy; 2025 Om More | All rights reserved
       </div>
-
   </footer>
 
   <script>
     let fileId = null;
 
-    // Upload logic
     const pdfInput = document.getElementById("pdfFile");
     const btnUpload = document.getElementById("btnUpload");
     pdfInput.onchange = () => {
@@ -330,7 +304,6 @@
         fileId = data.file_id;
         document.getElementById("fileNameDisplay").textContent = pdfInput.files[0].name;
 
-        // Show chat + file name
         document.getElementById("uploader").classList.add("hidden");
         document.getElementById("chatInterface").classList.remove("hidden");
         document.getElementById("fileNameDisplay").textContent = `📄 ${file.name}`;
@@ -354,7 +327,7 @@
       appendBubble(q, "user");
       msgInput.value = "";
 
-      // Show placeholder while waiting
+      // Showing bubble while waiting
       const thinkingBubble = addThinkingBubble();
 
       let answerText = "";
@@ -367,10 +340,10 @@
         const data = await res.json();
         answerText = data.answer || data.error;
       } catch (err) {
-        answerText = "❌ Error fetching answer.";
+        answerText = "Error fetching answer.";
       }
 
-      // Replace placeholder text
+      // Replacing placeholder text
       thinkingBubble.textContent = answerText;
     });
 
@@ -383,7 +356,7 @@
       bubble.textContent = text;
       chatBox.appendChild(bubble);
       chatBox.scrollTop = chatBox.scrollHeight;
-      return bubble;   // <— now returns the element
+      return bubble;
     }
 
     function addThinkingBubble() {
@@ -395,28 +368,20 @@
       return bubble;
     }
 
-
     document.getElementById("reuploadBtn").onclick = () => {
-      // Reset everything
       fileId = null;
       pdfInput.value = "";
 
-      // Show uploader again and hide chat
       document.getElementById("uploader").classList.remove("hidden");
       document.getElementById("chatInterface").classList.add("hidden");
 
-      // Clear chat and filename
       document.getElementById("fileNameDisplay").textContent = "";
       document.getElementById("chatBox").innerHTML = "";
 
-      // 🔧 Reset the upload button state
       btnUpload.disabled = true;
       btnUpload.textContent = "Upload PDF";
     };
-
-
   </script>
-
 
 </body>
 
