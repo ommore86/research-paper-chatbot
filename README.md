@@ -23,5 +23,8 @@ Upload any research paper (or PDF), and the app will let you chat with it intell
 - <b>LLM:</b> llama-3.1-8b-instant — "after trying with other similar models like Mixtral and llama-3.3-70b-versatile"
 - <b>Deployment:</b> Hugging Face Spaces (Earlier I used Vercel → then Render → but RAM limits made me shift to HF Spaces, and it’s been a game changer!)
 
+## Publication
+I have made the publication of this project on readytensor.ai. [Click here](https://app.readytensor.ai/publications/rag-based-research-paper-chatbot-D2mnoaeo4HhR) and do check it out!
+
 ## 🤝 Let's Connect!
 If you’d like to collaborate, give feedback, or just say hi — don’t hesitate to reach out or connect with me on [LinkedIn](https://www.linkedin.com/in/om-more-b802b2281/).
